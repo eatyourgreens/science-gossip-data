@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "cssnano": "^6.0.1",
-    "postcss": "^8.4.31",
+    "postcss": "^8.4.32",
     "@knagis/postcss-advanced-variables": "^4.0.0",
     "postcss-nested": "^6.0.1",
     "postcss-scss": "^4.0.9"
