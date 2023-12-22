@@ -1,4 +1,4 @@
-const allContributors = require('./allContributors')
+import allContributors from './allContributors.js'
 
 function pageSubjects(key, tag) {
   const pageSize = 50
@@ -27,4 +27,4 @@ function paginatedContributors() {
   return taggedSubjects;
 }
 
-module.exports = paginatedContributors()
+export default paginatedContributors()

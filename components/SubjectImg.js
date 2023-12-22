@@ -1,4 +1,4 @@
-module.exports = function SubjectImg({ className, size = 'standard', subject }) {
+export default function SubjectImg({ className, size = 'standard', subject }) {
   if (!subject) {
     return ''
   }

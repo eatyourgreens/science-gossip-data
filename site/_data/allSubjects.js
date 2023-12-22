@@ -1,9 +1,9 @@
-const fs = require('fs');
+import fs from 'fs';
 
 function allSubjects() {
   let subjects = [];
   fs.readdirSync('./site/_data/subjects').forEach(file => {
-    const groupSubjects = require(`./subjects/${file}`)
+    const groupSubjects = JSON.parse(fs.readFileSync(`./site/_data/subjects/${file}`))
     console.log(file, groupSubjects.length)
     subjects = subjects.concat(groupSubjects)
   });
@@ -11,4 +11,4 @@ function allSubjects() {
   return subjects
 }
 
-module.exports = allSubjects()
+export default allSubjects()

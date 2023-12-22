@@ -15,7 +15,7 @@ function tagPageImage({ tagPage }) {
   return subject ? subject.location.thumb : ''
 }
 
-module.exports = {
+export default {
   eleventyComputed: {
     tagName: tagPageTag,
     title: tagPageTitle,

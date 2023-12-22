@@ -1,13 +1,13 @@
-const fs = require('fs')
-const slugify = require('slugify')
+import fs from 'fs'
+import slugify from 'slugify'
 
 const tagIndex = {}
 
 function allTags() {
   const tempTagIndex = {}
   fs.readdirSync('./site/_data/results').forEach(file => {
-    const groupResults = require(`./results/${file}`)
-    const groupSubjects = require(`./subjects/${file}`)
+    const groupResults = JSON.parse(fs.readFileSync(`./site/_data/results/${file}`))
+    const groupSubjects = JSON.parse(fs.readFileSync(`./site/_data/subjects/${file}`))
     console.log(file, groupResults.length)
     for (let i = groupResults.length - 1; i > -1; i--) {
       const result = groupResults[i]
@@ -40,4 +40,4 @@ function allTags() {
   return tagIndex
 }
 
-module.exports = Object.entries(allTags())
+export default Object.entries(allTags())

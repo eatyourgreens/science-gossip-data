@@ -17,7 +17,7 @@ function subjectsPageImage({ subjectsPage }) {
   return subject.location.thumb
 }
 
-module.exports = {
+export default {
   eleventyComputed: {
     group: subjectsPageGroup,
     title: subjectsPageTitle,

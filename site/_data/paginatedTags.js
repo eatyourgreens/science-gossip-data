@@ -1,4 +1,4 @@
-const allTags = require('./allTags')
+import allTags from './allTags.js'
 
 function pageSubjects(key, tag) {
   const pageSize = 50
@@ -27,4 +27,4 @@ function paginatedTags() {
   return taggedSubjects;
 }
 
-module.exports = paginatedTags()
+export default paginatedTags()

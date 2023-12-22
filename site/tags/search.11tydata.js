@@ -2,7 +2,7 @@ function searchIndex({ allTags }) {
   return allTags.map(([key, value]) => ({ tagName: value.tagName, slug: key }));
 }
 
-module.exports = {
+export default {
   eleventyComputed: {
     searchIndex,
     title: 'Keyword search',

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Results from Science Gossip.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "node --max_old_space_size=8192 node_modules/.bin/eleventy",
     "watch": "npx eleventy --watch",
