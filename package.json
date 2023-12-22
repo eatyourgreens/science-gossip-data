@@ -12,12 +12,12 @@
   "author": "Zooniverse",
   "license": "Apache-2.0",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^3.0.0-alpha.3"
   },
   "devDependencies": {
+    "@knagis/postcss-advanced-variables": "^4.0.0",
     "cssnano": "^6.0.2",
     "postcss": "^8.4.32",
-    "@knagis/postcss-advanced-variables": "^4.0.0",
     "postcss-nested": "^6.0.1",
     "postcss-scss": "^4.0.9"
   }
