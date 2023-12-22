@@ -1,17 +1,18 @@
 import fs from 'fs'
 import slugify from 'slugify'
 
+import allSubjects from './allSubjects.js'
+
 const tagIndex = {}
 
 function allTags() {
   const tempTagIndex = {}
   fs.readdirSync('./site/_data/results').forEach(file => {
     const groupResults = JSON.parse(fs.readFileSync(`./site/_data/results/${file}`))
-    const groupSubjects = JSON.parse(fs.readFileSync(`./site/_data/subjects/${file}`))
     console.log(file, groupResults.length)
     for (let i = groupResults.length - 1; i > -1; i--) {
       const result = groupResults[i]
-      const subject = groupSubjects.find(subject => subject.zooniverse_id === result.subject_id)
+      const subject = allSubjects.find(subject => subject.zooniverse_id === result.subject_id)
       result.keywords
         .map(key => key.trim())
         .filter(Boolean)
