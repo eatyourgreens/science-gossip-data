@@ -46,10 +46,9 @@ function tags({ subject }) {
   .map(([slug, name]) => ({ href: `../../../../tags/${slug}/page/0/`, name }))
 }
 
-function contributors({ allContributors, subject }) {
-  return allContributors
-  .filter(([slug, { subjects }]) => subjects.includes(subject))
-  .map(([slug, { name }]) => ({ href: `../../../../contributors/${slug}/page/0/`, name }))
+function contributors({ subject }) {
+  return Object.entries(subject.contributors)
+  .map(([slug, name]) => ({ href: `../../../../contributors/${slug}/page/0/`, name }))
 }
 
 function species({ subject }) {

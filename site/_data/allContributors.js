@@ -4,6 +4,9 @@ import allSubjects from './allSubjects.js'
 import allResults from './allResults.js'
 
 const contributorIndex = {}
+allSubjects.forEach(subject => {
+  subject.contributors = {}
+})
 
 function allContributors() {
   const tempIndex = {}
@@ -32,8 +35,12 @@ function allContributors() {
       const { name, subjects } = value
       contributorIndex[key] = {
         name,
-        subjects: [...new Set(subjects)]
+        subjects: [...new Set(subjects.filter(Boolean))]
       }
+      contributorIndex[key].subjects
+        .forEach(subject => {
+          subject.contributors[key] = name
+        })
     }
   }
   console.log('Total number of contributors:', Object.keys(contributorIndex).length)
