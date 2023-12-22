@@ -4,6 +4,9 @@ import allSubjects from './allSubjects.js'
 import allResults from './allResults.js'
 
 const speciesIndex = {}
+allSubjects.forEach(subject => {
+  subject.species = {}
+})
 
 function allSpecies() {
   const tempIndex = {}
@@ -43,8 +46,12 @@ function allSpecies() {
       const { name, subjects } = value
       speciesIndex[key] = {
         name,
-        subjects: [...new Set(subjects)]
+        subjects: [...new Set(subjects.filter(Boolean))]
       }
+      speciesIndex[key].subjects
+        .forEach(subject => {
+          subject.species[key] = name
+        })
     }
   }
   console.log('Total number of species:', Object.keys(speciesIndex).length)

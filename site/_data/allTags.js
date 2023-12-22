@@ -4,6 +4,9 @@ import allSubjects from './allSubjects.js'
 import allResults from './allResults.js'
 
 const tagIndex = {}
+allSubjects.forEach(subject => {
+  subject.tags = {}
+})
 
 function allTags() {
   const tempTagIndex = {}
@@ -28,8 +31,12 @@ function allTags() {
       const { tagName, subjects } = value
       tagIndex[key] = {
         tagName,
-        subjects: [...new Set(subjects)]
+        subjects: [...new Set(subjects.filter(Boolean))]
       }
+      tagIndex[key].subjects
+        .forEach(subject => {
+          subject.tags[key] = tagName
+        })
     }
   }
   console.log('Total number of tags:', Object.keys(tagIndex).length)

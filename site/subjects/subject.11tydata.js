@@ -21,10 +21,10 @@ function subjectImage({ subject }) {
   return href;
 }
 
-function linkedKeywords({ allTags, subject, results }) {
+function linkedKeywords({ subject, results }) {
   const keywords = [];
   const result = parseSubjectResults({ subject, results });
-  const linkedTags = tags({ allTags, subject });
+  const linkedTags = tags({ subject });
   result.keywords
   .map(key => key.trim())
   .filter(Boolean)
@@ -41,10 +41,9 @@ function linkedKeywords({ allTags, subject, results }) {
   return keywords;
 }
 
-function tags({ allTags, subject }) {
-  return allTags
-  .filter(([slug, { subjects }]) => subjects.includes(subject))
-  .map(([slug, { name }]) => ({ href: `../../../../tags/${slug}/page/0/`, name }))
+function tags({ subject }) {
+  return Object.entries(subject.tags)
+  .map(([slug, name]) => ({ href: `../../../../tags/${slug}/page/0/`, name }))
 }
 
 function contributors({ allContributors, subject }) {
@@ -53,10 +52,9 @@ function contributors({ allContributors, subject }) {
   .map(([slug, { name }]) => ({ href: `../../../../contributors/${slug}/page/0/`, name }))
 }
 
-function species({ allSpecies, subject }) {
-  return allSpecies
-  .filter(([slug, { subjects }]) => subjects.includes(subject))
-  .map(([slug, { name }]) => ({ href: `../../../../species/${slug}/page/0/`, name }))
+function species({ subject }) {
+  return Object.entries(subject.species)
+  .map(([slug, name]) => ({ href: `../../../../species/${slug}/page/0/`, name }))
 }
 
 function group({ groups, subject }) {
