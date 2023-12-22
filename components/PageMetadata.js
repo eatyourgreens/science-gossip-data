@@ -13,7 +13,7 @@ function metaImage(ogImage) {
   `;
 }
 
-module.exports = function({ page, title = 'Science Gossip Data', description, ogImage }){
+export default function PageMetadata({ page, title = 'Science Gossip Data', description, ogImage }){
   return `
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

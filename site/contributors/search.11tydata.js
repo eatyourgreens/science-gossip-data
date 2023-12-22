@@ -2,7 +2,7 @@ function searchIndex({ allContributors }) {
   return allContributors.map(([key, value]) => ({ name: value.name, slug: key }));
 }
 
-module.exports = {
+export default {
   eleventyComputed: {
     searchIndex,
     title: 'Contributor search',

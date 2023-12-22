@@ -1,4 +1,4 @@
-const slugify = require('slugify');
+import slugify from 'slugify';
 
 function parseSubjectResults({ subject, results }) {
   const groupID = subject.group.zooniverse_id;
@@ -63,7 +63,7 @@ function group({ groups, subject }) {
   return groups[subject.group.zooniverse_id]
 }
 
-module.exports = {
+export default {
   eleventyComputed: {
     group,
     species,

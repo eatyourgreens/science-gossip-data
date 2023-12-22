@@ -1,4 +1,4 @@
-module.exports = function SVGSubject(content, { subject }) {
+export default function SVGSubject(content, { subject }) {
   const { original_size } = subject.metadata;
   const maxDimension = Math.max(original_size.height, original_size.width);
   const scale = 1400 / maxDimension;

@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 function pageSubjects(groupSubjects) {
   const pageSize = 50
@@ -23,10 +23,10 @@ function pageSubjects(groupSubjects) {
 function paginatedSubjects() {
   let groupedSubjects = [];
   fs.readdirSync('./site/_data/subjects').forEach(file => {
-    const groupSubjects = require(`./subjects/${file}`);
+    const groupSubjects = JSON.parse(fs.readFileSync(`./site/_data/subjects/${file}`));
     groupedSubjects = groupedSubjects.concat(pageSubjects(groupSubjects));
   });
   return groupedSubjects;
 }
 
-module.exports = paginatedSubjects()
+export default paginatedSubjects();

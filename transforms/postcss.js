@@ -1,16 +1,21 @@
+import cssnano from 'cssnano';
+import postcss from 'postcss';
+import postcssAdvancedVariables from '@knagis/postcss-advanced-variables';
+import postcssNested from 'postcss-nested';
+import postcssSCSS from 'postcss-scss';
+
 const
-  postcss = require('postcss'),
   postcssPlugins = [
-    require('@knagis/postcss-advanced-variables'),
-    require('postcss-nested'),
-    require('cssnano')
+    postcssAdvancedVariables,
+    postcssNested,
+    cssnano
   ],
   postcssOptions = {
     from: 'site/scss/entry.scss',
-    syntax: require('postcss-scss')
+    syntax: postcssSCSS
   };
 
-module.exports = async function (content) {
+export default async function (content) {
 
   if (!this.outputPath.endsWith('.css')) return content;
 

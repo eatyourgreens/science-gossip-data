@@ -1,14 +1,20 @@
-module.exports = function (eleventyConfig) {
+import PageMetadata from './components/PageMetadata.js';
+import SubjectImg from './components/SubjectImg.js';
+import SVGMark from './components/SVGMark.js';
+import SVGSubject from './components/SVGSubject.js';
+import cssTransforms from './transforms/postcss.js';
+
+export default function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./site/scss/');
   eleventyConfig.setDataDeepMerge(false);
   eleventyConfig.addLayoutAlias("default", "layouts/default.njk");
 
-  eleventyConfig.addTransform('postcss', require('./transforms/postcss'));
+  eleventyConfig.addTransform('postcss', cssTransforms);
 
-  eleventyConfig.addShortcode("PageMetadata", require('./components/PageMetadata'));
-  eleventyConfig.addShortcode("SubjectImg", require('./components/SubjectImg'));
-  eleventyConfig.addShortcode("SVGMark", require('./components/SVGMark'));
-  eleventyConfig.addPairedShortcode("SVGSubject", require('./components/SVGSubject'));
+  eleventyConfig.addShortcode("PageMetadata", PageMetadata);
+  eleventyConfig.addShortcode("SubjectImg", SubjectImg);
+  eleventyConfig.addShortcode("SVGMark", SVGMark);
+  eleventyConfig.addPairedShortcode("SVGSubject", SVGSubject);
 
   return {
     templateFormats: [

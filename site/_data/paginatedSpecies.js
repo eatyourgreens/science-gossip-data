@@ -1,4 +1,4 @@
-const allSpecies = require('./allSpecies')
+import allSpecies from './allSpecies.js'
 
 function pageSubjects(key, tag) {
   const pageSize = 50
@@ -27,4 +27,4 @@ function paginatedSpecies() {
   return taggedSubjects;
 }
 
-module.exports = paginatedSpecies()
+export default paginatedSpecies()

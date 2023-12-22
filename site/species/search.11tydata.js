@@ -2,7 +2,7 @@ function searchIndex({ allSpecies }) {
   return allSpecies.map(([key, value]) => ({ name: value.name, slug: key }));
 }
 
-module.exports = {
+export default {
   eleventyComputed: {
     searchIndex,
     title: 'Species search',

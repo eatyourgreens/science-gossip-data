@@ -8,7 +8,7 @@ const colours = {
   contributor: 'steelblue'
 }
 
-module.exports = function SVGMark({ mark }) {
+export default function SVGMark({ mark }) {
   const [ cx, cy, x, y, width, height ] = mark.coords
   const colour = colours[mark.type] || 'yellow'
   
