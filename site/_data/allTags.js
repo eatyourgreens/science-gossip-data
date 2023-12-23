@@ -5,6 +5,7 @@ import allResults from './allResults.js'
 
 const tagIndex = {}
 allSubjects.forEach(subject => {
+  subject.result = {}
   subject.tags = {}
 })
 
@@ -12,6 +13,9 @@ function allTags() {
   const tempTagIndex = {}
   allResults.forEach(result => {
     const subject = allSubjects.find(subject => subject.zooniverse_id === result.subject_id)
+    if (subject) {
+      subject.result = result
+    }
     result.keywords
       .map(key => key.trim())
       .filter(Boolean)

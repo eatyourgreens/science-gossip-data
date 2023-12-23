@@ -1,18 +1,15 @@
 import slugify from 'slugify';
 
-function parseSubjectResults({ subject, results }) {
-  const groupID = subject.group.zooniverse_id;
-  const result = results[groupID].find(result => result.subject_id === subject.zooniverse_id);
-  return result;
+function parseSubjectResults({ subject }) {
+  return subject?.result;
 }
 
 function subjectTitle(data) {
   return `Subject ${data.subject.zooniverse_id}`;
 }
 
-function subjectDescription(data) {
-  const result = parseSubjectResults(data);
-  return result ? result.keywords.join(', ') : '';
+function subjectDescription({ subject }) {
+  return subject.result ? subject.result.keywords.join(', ') : '';
 }
 
 function subjectImage({ subject }) {
@@ -21,11 +18,10 @@ function subjectImage({ subject }) {
   return href;
 }
 
-function linkedKeywords({ subject, results }) {
+function linkedKeywords({ subject }) {
   const keywords = [];
-  const result = parseSubjectResults({ subject, results });
   const linkedTags = tags({ subject });
-  result.keywords
+  subject.result.keywords
   .map(key => key.trim())
   .filter(Boolean)
   .forEach(key => {
