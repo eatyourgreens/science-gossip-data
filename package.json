@@ -13,7 +13,7 @@
   "author": "Zooniverse",
   "license": "Apache-2.0",
   "dependencies": {
-    "@11ty/eleventy": "^3.0.0-alpha.13"
+    "@11ty/eleventy": "^3.0.0-alpha.14"
   },
   "devDependencies": {
     "@knagis/postcss-advanced-variables": "^4.0.0",
